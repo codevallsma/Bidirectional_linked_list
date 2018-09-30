@@ -27,11 +27,41 @@ BidList  BidList_Create(){
 
 }
 
-void  BidList_InsertFoward(BidList *l, int element){
-
+void  BidList_InsertForward(BidList *l, int element){
+	Node *aux;
+	if(l->poi->prev == NULL){
+		printf("\nError when inserting a new element in the back of the point of interest, we are at the end of the list");
+	}else{
+		aux = (Node*) malloc(sizeof(Node));
+		if(aux==NULL){
+			printf("Error when inserting before the point of interest");
+		}else{
+			aux->element = element;
+			aux->foll = l->poi;
+			aux->prev = l->poi->prev;
+			l->poi->prev->foll = aux;
+			l->poi->prev=aux; 
+		}
+	}
 }
+//Function that allows us to insert an element in front of our point of interest (x-> (poi) -> (new node)-> y)
 void  BidList_InsertBefore(BidList *l, int element){
-
+	Node *aux;
+	if(l->poi->foll == NULL){
+		printf("\nError when inserting a new element in the back of the point of interest, we are at the end of the list");
+	}else{
+		aux = (Node*) malloc(sizeof(Node));
+		if(aux==NULL){
+			printf("Error when inserting before the point of interest");
+		}else{
+			//inserting the element
+			aux->element = element;
+			aux->prev = l->poi;
+			aux->foll = l->poi->foll;
+			l->poi->foll->prev = aux;
+			l->poi->foll = aux;
+		}
+	}
 }
 int  BidList_Check(BidList l){
 
