@@ -52,7 +52,7 @@ void  BidList_InsertBefore(BidList *l, int element){
 	}else{
 		aux = (Node*) malloc(sizeof(Node));
 		if(aux==NULL){
-			printf("Error when inserting before the point of interest");
+			printf("\nError when inserting before the point of interest");
 		}else{
 			//inserting the element
 			aux->element = element;
@@ -63,11 +63,36 @@ void  BidList_InsertBefore(BidList *l, int element){
 		}
 	}
 }
+//Checks our element located in the Node pointed by our point of interest
 int  BidList_Check(BidList l){
-
+	int element = error_value;
+	//Checking if it's not an empty list
+	if(l.poi != l.head && l.head != l.tail){
+		element = l.poi->e;
+	}else{
+		//Error message, list empty
+		printf("\nError when consulting, the list is empty");
+	}
+	return element;
 }
+//This function allows us to delete our point of interest
 void  BidList_Delete(BidList *l){
-
+	Node *aux;
+	//Making sure we are not at the beginnig or at the end of our list
+	if(l.poi != l.head && l.head != l.tail){
+		//Assigning our auxiliar value to the point of interest
+		aux= l->poi;
+		//Assigning the previous node to point at the next node of our point of interest
+		l->poi->prev->foll= l->poi->foll;
+		//Assigning the following node to point at the previous Node of our point of interest
+		l->poi->foll->prev= l->poi->prev;
+		//Assigning our new point of interest
+		l->poi = l->poi->seg;
+		//Deleting our old point of interest
+		free(aux);
+	}else{
+		printf("\nError when deleting, the point of interest is at the beginning or at the end of the list ");
+	}
 }
 void  BidList_Forward(BidList *l){
 
