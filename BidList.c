@@ -7,9 +7,26 @@
  ***************************************************************************************************************************************************/
 #include "BidList.h"
 
+//This is the function that allows us to create a bidirectional linked list
 BidList  BidList_Create(){
+	BidList l;
+	//Asking for memory
+	l.head = (Node*) malloc(sizeof(Node));
+	l.tail = (Node*) malloc(sizeof(Node));
+
+	//Checking if the memory is correctly assigned
+	if(l.head == NULL || l.tail == NULL){
+		printf("\nThere's an error when creating the list");
+	}else{
+		//Making the assignments of each field in order to get a bidirectional linked list
+		l.head->prev = NULL;
+		l.head->foll = l.tail;
+		l.tail->foll= NULL;
+		l.tail->prev = l.head;
+	}
 
 }
+
 void  BidList_InsertFoward(BidList *l, int element){
 
 }
