@@ -10,10 +10,8 @@
 BidList  BidList_Create(){
 
 }
-void  BidList_InsertFoward(BidList *l, int element){
 
-}
-void  BidList_InsertBefore(BidList *l, int element){
+void  BidList_InsertSorted(BidList *l, int element){
 
 }
 int  BidList_Check(BidList l){
