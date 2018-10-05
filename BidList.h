@@ -30,6 +30,6 @@ void  BidList_Forward(BidList *l);
 void  BidList_Backwards(BidList *l);
 void BidList_GoBeginning(BidList*l);
 void BidList_GoEnd(BidList *l);
-int BidList_End(BidList);
-int BidList_Empty(BidList);
+int BidList_End(BidList l);
+int BidList_Empty(BidList l);
 void BidList_Destroy(BidList *l);
