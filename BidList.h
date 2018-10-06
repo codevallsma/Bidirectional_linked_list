@@ -34,3 +34,4 @@ void BidList_GoEnd(BidList *l);
 int BidList_End(BidList l);
 int BidList_Empty(BidList l);
 void BidList_Destroy(BidList *l);
+#endif
