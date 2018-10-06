@@ -1,5 +1,6 @@
-#ifndef BID_LIST
-#define BID_LIST
+//DEFINING OUR LIBRARY
+#ifndef _BidList_H
+#define _BidList_H
 
 //CONSTANTS
 #define error_value -500
@@ -17,7 +18,7 @@ typedef struct x{
 }Node;
 typedef struct{
     Node *head;
-    Node *last;
+    Node *tail;
     Node *poi; //point of interest
 }BidList;
 

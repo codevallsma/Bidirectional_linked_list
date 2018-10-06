@@ -33,13 +33,13 @@ void  BidList_InsertSorted(BidList l, int element){
 	if(aux==NULL){
 		printf("\nError when inserted sorted!");
 	}else{
-		aux->e=element;
-		tmp=l.poi // we copy our point of interest
+		aux->element=element;
+		tmp=l.poi; // we copy our point of interest
 		l.poi= l.head;
 		/*we move through our list while our element to be inserted is greater than the element pointed by our point of interest
 		and also, while our point of interest is not pointing at the end of our list */
 		while(l.poi->foll->element < element && l.poi->foll!= l.tail){
-			l.poi= l.poi->foll
+			l.poi= l.poi->foll;
 		}
 		aux->foll=l.poi->foll;
 		aux->prev=l.poi;
@@ -52,7 +52,7 @@ int  BidList_Check(BidList l){
 	int element = error_value;
 	//Checking if it's not an empty list
 	if(l.poi != l.head && l.head != l.tail){
-		element = l.poi->e;
+		element = l.poi->element;
 	}else{
 		//Error message, list empty
 		printf("\nError when consulting, the list is empty");
@@ -63,7 +63,7 @@ int  BidList_Check(BidList l){
 void  BidList_Delete(BidList *l){
 	Node *aux;
 	//Making sure we are not at the beginnig or at the end of our list
-	if(l.poi != l.head && l.head != l.tail){
+	if(l->poi != l->head && l->head != l->tail){
 		//Assigning our auxiliar value to the point of interest
 		aux= l->poi;
 		//Assigning the previous node to point at the next node of our point of interest
