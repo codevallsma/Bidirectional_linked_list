@@ -48,6 +48,7 @@ void  BidList_InsertSorted(BidList l, int element){
         }
 
 		aux->foll=l.poi->foll;
+		aux->foll->prev=aux;
 		aux->prev=l.poi;
 		l.poi->foll= aux;
 		l.poi=tmp; //we reestablish our original point of interest
@@ -111,11 +112,13 @@ void  BidList_Backwards(BidList *l){
 }
 
 void BidList_GoBeginning(BidList*l){
-	l->poi = l->head;
+	//making sure the list is not empty
+	if(l->head != l->tail)l->poi = l->head->foll;
 }
 
 void BidList_GoEnd(BidList *l){
-	l->poi = l->tail;
+	//making sure the list is not empty
+	if(l->head != l->tail)l->poi = l->tail->prev;
 }
 
 int BidList_End(BidList l){
